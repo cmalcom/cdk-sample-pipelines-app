@@ -26,7 +26,7 @@ export class PipelineStack extends cdk.Stack {
         output: sourceArtifact,
         oauthToken: cdk.SecretValue.secretsManager('github-token'),
         trigger: actions.GitHubTrigger.WEBHOOK,
-        owner: 'REPLACE_WITH_OWNER',
+        owner: 'cmalcom',
         repo: 'cdk-sample-pipelines-app',
         branch: 'main'
       }),
