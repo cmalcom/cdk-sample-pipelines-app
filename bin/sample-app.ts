@@ -9,7 +9,7 @@ const app = new cdk.App();
 const delivery = new PipelineStack(app, 'sample-DeliveryPipeline', {
   name: 'sample-app',
   env: {
-    account: '006684778752',
+    account: '051378770748',
     region: 'us-west-2',
   }
 });
@@ -17,7 +17,7 @@ const delivery = new PipelineStack(app, 'sample-DeliveryPipeline', {
 delivery.pipeline.addApplicationStage(
   new SampleApp(app, 'devSampleApp', { 
     env: {
-      account: '873087544906',
+      account: '467592754234',
       region: 'us-west-2'
     }
   })

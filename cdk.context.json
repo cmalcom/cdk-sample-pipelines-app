@@ -1,5 +1,6 @@
 {
   "context": {
     "assume-role-credentials:readIamRoleName": "cdk-hnb659fds-deploy-role-{ACCOUNT_ID}-us-west-2"
-  }
+  },
+  "ssm:account=467592754234:parameterName=/aws/service/ecs/optimized-ami/amazon-linux/recommended:region=us-west-2": "{\"schema_version\":1,\"image_name\":\"amzn-ami-2018.03.20210413-amazon-ecs-optimized\",\"image_id\":\"ami-0e97a4c66e8f001d7\",\"os\":\"Amazon Linux\",\"ecs_runtime_version\":\"Docker version 19.03.13-ce\",\"ecs_agent_version\":\"1.51.0\"}"
 }
