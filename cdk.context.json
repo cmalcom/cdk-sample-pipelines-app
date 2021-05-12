@@ -1,0 +1,5 @@
+{
+  "context": {
+    "assume-role-credentials:readIamRoleName": "cdk-hnb659fds-deploy-role-{ACCOUNT_ID}-us-west-2"
+  }
+}
