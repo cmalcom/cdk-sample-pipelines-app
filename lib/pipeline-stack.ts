@@ -85,25 +85,33 @@ export class PipelineStack extends cdk.Stack {
         {
           stageName: 'Deploy',
           actions: [
-            new actions.CodeBuildAction({
+            new actions.CloudFormationCreateUpdateStackAction({
+              stackName: 'SampleApp',
               actionName: `DeployAction`,
-              project: new codebuild.PipelineProject(this, `NpmDeployProject`, {
-                  buildSpec: codebuild.BuildSpec.fromObject({
-                    version: '0.2',
-                    phases: {
-                      build: {
-                        commands: [
-                          `npx cdk deploy 'devSampleStack'`
-                        ]
-                      }
-                    }
-                  }),
-                  environment: {
-                    buildImage: codebuild.LinuxBuildImage.STANDARD_2_0
-                  }
-                }),
-              input: buildArtifact
-            })          
+              templatePath: buildArtifact.atPath(`cdk.out/devSampleStack.template.json`),
+              adminPermissions: true,
+              account: '467592754234',
+            })
+
+            // new actions.CodeBuildAction({
+            //   actionName: `DeployAction`,
+            //   project: new codebuild.PipelineProject(this, `NpmDeployProject`, {
+            //       buildSpec: codebuild.BuildSpec.fromObject({
+            //         version: '0.2',
+            //         phases: {
+            //           build: {
+            //             commands: [
+            //               `npx cdk deploy 'devSampleStack'`
+            //             ]
+            //           }
+            //         }
+            //       }),
+            //       environment: {
+            //         buildImage: codebuild.LinuxBuildImage.STANDARD_2_0
+            //       }
+            //     }),
+            //   input: buildArtifact
+            // })          
           ]
         }
       ]
