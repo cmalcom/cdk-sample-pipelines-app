@@ -17,3 +17,20 @@ export class SampleApp extends cdk.Stage {
     });
   }
 }
+
+export class SampleStack extends cdk.Stack {
+  constructor(scope: cdk.Construct, id: string, props?: cdk.StageProps) {
+    super(scope, id, props);
+
+    const stack = new cdk.Stack(this, 'SampleStack', {
+      env: props?.env,
+    });
+
+    // just doing a simple ssm parameter lookup to have the CDK read from the account
+    const param = ssm.StringParameter.valueFromLookup(stack, '/aws/service/ecs/optimized-ami/amazon-linux/recommended')
+
+    new cdk.CfnOutput(stack, 'Param', {
+      value: param
+    });
+  }
+}
