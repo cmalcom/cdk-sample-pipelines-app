@@ -90,7 +90,7 @@ export class PipelineStack extends cdk.Stack {
               actionName: `DeployAction`,
               templatePath: buildArtifact.atPath(`cdk.out/devSampleStack.template.json`),
               adminPermissions: true,
-              account: '467592754234',
+              // account: '467592754234',
             })
 
             // new actions.CodeBuildAction({
